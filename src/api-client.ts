@@ -47,3 +47,17 @@ export const login=async(formdata:loginForm)=>{
         throw new Error(responseBody.message)
     }
 }
+
+export const logout=async()=>{
+    const response=await fetch(`${API_BASE_URL}/api/auth/logout`,{
+        method:'POST',
+        credentials:'include',
+        headers:{
+            "Content-Type":"application/json"
+        }
+    })
+    if(!response.ok){
+        throw new Error("Error during signout")
+    }
+
+}
